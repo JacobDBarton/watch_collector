@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}watch{% endblock  %}
+
+{% block content %}
+
+<h1 class="title pt-5">Trending watches</h1>
+<div class="gallery">
+  {% for watch in watches %}
+  <a href="">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <img src="{{watch.image}}" alt="{{watch.name}}" />
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{watch.name}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No watches Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
